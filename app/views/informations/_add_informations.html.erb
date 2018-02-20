@@ -1,0 +1,20 @@
+<%= form_for(information, url: {action: "create", controller: "informations"}) do |f| %>
+    <div class="form-group">
+      <%= f.label :domain_name %><br/>
+      <%= f.text_field :domain_name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :ip_machine %><br/>
+      <%= f.text_field :ip_machine, autofocus: true, class: 'form-control' %>
+    </div>
+
+	<div class="form-group">
+      <%= f.label :machine_name %><br/>
+      <%= f.text_field :machine_name, autofocus: true, class: 'form-control' %>
+    </div>        
+
+    <div class="actions">
+      <%= f.submit "Install", class: 'btn btn-primary' %>
+    </div>
+ <% end %>
