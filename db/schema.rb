@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220103654) do
+ActiveRecord::Schema.define(version: 20180221134357) do
 
   create_table "information", force: :cascade do |t|
     t.string "domain_name"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20180220103654) do
     t.string "machine_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "box"
+    t.integer "ram"
+    t.string "installation_type"
   end
 
 end
