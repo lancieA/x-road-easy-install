@@ -5,7 +5,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :ip_machine %><br/>
+      <%= f.label "Nombre d'habitants" %><br/>
       <%= f.text_field :ip_machine, autofocus: true, class: 'form-control' %>
     </div>
 
@@ -15,24 +15,12 @@
     </div>
 
     <div class="form-group">
-        <%= f.label :box %><br/>
-        <%= f.select(:box) do %>
-          <% [['Ubuntu', "Ubuntu"], ['RedHat', "RedHat"]].each do |c| -%>
-            <%= content_tag(:option, c.first, value: c.last) %>
-          <% end %>
-        <% end %>
-    </div>
-
-    <div class="form-group">
       <%= f.label :installation_type %><br/>
-      <%= f.select(:installation_type) do %>
-        <% [['Instance X Road', "Instance X Road"], ['Security Server', "Security Server"], ['Central Server', "Central Server"], ['Certficat Autority Server', "Certficat Autority Server"], ['Proxy Server', "Proxy Server"]].each do |c| -%>
-          <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
-      <% end %>
+      <%= f.select(:installation_type, [['Instance X Road', "Instance X-Road"], ['Security Server', "Security Server"], ['Central Server', "Central Server"], ['Certficat Autority Server', "Certficat Autority Server"], ['Proxy Server', "Proxy Server"]],{},{class: 'form-control'}) %>
+        
     </div>
 
     <div class="actions">
-      <%= f.submit "Install", class: 'btn btn-primary' %>
+      <%= f.submit "Install", class: 'btn purple-btn' %>
     </div>
  <% end %>

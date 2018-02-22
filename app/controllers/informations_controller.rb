@@ -21,6 +21,13 @@ class InformationsController < ApplicationController
 
   def create
   	puts "create information"
+    f = File.open("./information-x-road.txt", "w")
+    f.puts(params[:information][:domain_name] + "\n")
+    f.puts(params[:information][:ip_machine] + "\n")
+    f.puts(params[:information][:machine_name] + "\n")
+    f.puts(params[:information][:box] + "\n")
+    f.puts(params[:information][:installation_type])
+    f.close
   end
 
   private
