@@ -1,38 +1,32 @@
 <%= form_for(information, url: {action: "create", controller: "informations"}) do |f| %>
-    <div class="form-group">
-      <%= f.label :domain_name %><br/>
+    <div class="form-group hidden" id="domain-name">
+      <%= f.label "Nom du domaine" %><br/>
       <%= f.text_field :domain_name, autofocus: true, class: 'form-control' %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :ip_machine %><br/>
+    <div class="form-group hidden" id="number-people">
+      <%= f.label "Nombre d'habitants" %><br/>
       <%= f.text_field :ip_machine, autofocus: true, class: 'form-control' %>
     </div>
 
-    <div class="form-group">
-        <%= f.label :machine_name %><br/>
+    <div class="form-group hidden" id="machine-name">
+        <%= f.label "Nom de la machine" %><br/>
         <%= f.text_field :machine_name, autofocus: true, class: 'form-control' %>
     </div>
 
-    <div class="form-group">
-        <%= f.label :box %><br/>
-        <%= f.select(:box) do %>
-          <% [['Ubuntu', "Ubuntu"], ['RedHat', "RedHat"]].each do |c| -%>
-            <%= content_tag(:option, c.first, value: c.last) %>
-          <% end %>
-        <% end %>
-    </div>
+    <div class="form-group" id="installation_type">
+      <%= f.label "Type d'installation" %><%= session[:test]%><br/>
 
-    <div class="form-group">
-      <%= f.label :installation_type %><br/>
-      <%= f.select(:installation_type) do %>
-        <% [['Instance X Road', "Instance X Road"], ['Security Server', "Security Server"], ['Central Server', "Central Server"], ['Certficat Autority Server', "Certficat Autority Server"], ['Proxy Server', "Proxy Server"]].each do |c| -%>
-          <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
+      <% if session[:installation_type] %>
+        <%= session[:installation_type] %>
+        <%= f.hidden_field :installation_type, value: session[:installation_type] %>
+      <% else %>
+        <%= f.select(:installation_type, [['Security Server', "Security Server"], ['Central Server', "Central Server"], ['Certficat Autority Server', "Certficat Autority Server"], ['Proxy Server', "Proxy Server"], ['Instance X-Road', "Instance X-Road"]],{},{class: 'form-control'}) %>
       <% end %>
+        
     </div>
 
     <div class="actions">
-      <%= f.submit "Install", class: 'btn btn-primary' %>
+      <%= f.submit "Suivant", class: 'btn purple-btn', id: 'submit-button' %>
     </div>
  <% end %>
