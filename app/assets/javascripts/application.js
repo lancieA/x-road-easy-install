@@ -13,3 +13,22 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+$( document ).ready(function() {
+
+
+	$("#information_installation_type").change(function() {
+	  	if ($("#information_installation_type")[0].value == "Instance X-Road") {
+			$("#submit-button")[0].value = "Suivant";
+			$("#domain-name").hide();
+			$("#number-people").hide();
+			$("#machine-name").hide();
+		} else if ($("#information_installation_type")[0].value == "Proxy Server"){
+			$("#submit-button")[0].value = "Installation";
+		} else {
+			$("#submit-button")[0].value = "Installation";
+			$("#domain-name").show();
+			$("#number-people").show();
+			$("#machine-name").show();
+		}
+	});
+});
